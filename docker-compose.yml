@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: app_frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    working_dir: /frontend
+    depends_on:
+      - backend
+    restart: always
+  backend:
+    container_name: app_backend
+    build: ./backend
+    ports:
+      - 5000:5000
+    working_dir: /backend
+    restart: always
