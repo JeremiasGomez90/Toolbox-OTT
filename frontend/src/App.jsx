@@ -37,8 +37,8 @@ function App() {
           </thead>
           <tbody>
           {loading && <tr><td colSpan={4}>Loading...</td></tr>}
-          {!loading && !files.length && (<tr><td colSpan={4}>File not found</td></tr>)}
-          {!!files && files.map((f, index) => <TableItem key={f.file} file={f.file} lines={f.lines} />)}
+          {!loading && !files.length && (<tr><td colSpan={4}>File not found or wrong file format</td></tr>)}
+          {!!files && files.map(f => <TableItem key={f.file} file={f.file} lines={f.lines} />)}
           </tbody>
         </Table>
       </div>
