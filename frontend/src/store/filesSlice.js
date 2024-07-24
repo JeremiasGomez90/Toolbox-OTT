@@ -7,14 +7,13 @@ export const fetchFiles = createAsyncThunk("files/fetchFiles", async () => {
   if (fileName) {
     const file = await fetch(
       `http://localhost:5000/files/data?fileName=${fileName}`
-    )
-      .then((res) => res.json())
-      .catch(() => []);
+    ).then((res) => res.json());
+    console.log({ file });
     return file;
   }
-  const files = await fetch("http://localhost:5000/files/data")
-    .then((res) => res.json())
-    .catch(() => []);
+  const files = await fetch("http://localhost:5000/files/data").then((res) =>
+    res.json()
+  );
   return files;
 });
 
